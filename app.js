@@ -1,5 +1,5 @@
 /* Main backend for our Yelp app */
-const port        = 5000
+const port        = process.env.PORT || 5000
 var express       = require("express"),
     app           = express(),
     bodyParser    = require("body-parser"),    // for Express's post method
