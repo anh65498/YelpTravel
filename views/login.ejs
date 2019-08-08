@@ -1,0 +1,16 @@
+<% include ./partials/header.ejs %>
+
+<div class="container">
+  <h1>Login</h1>
+  <form class="" action="/login" method="post">
+      <input type="text" name="username" placeholder="username" value="">
+      <input type="password" name="password" placeholder="password" value="">
+      <input type="submit" value="Login!">
+  </form>
+
+  <ul>
+    <li><a href="/register">Sign Up</a></li>
+    <li><a href="/destinations">All Destinations</a></li>
+  </ul>
+</div>
+<% include ./partials/footer.ejs %>
