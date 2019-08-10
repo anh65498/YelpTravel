@@ -14,8 +14,11 @@ var express       = require("express"),
     User          = require("./MongoDB_models/user.js"),
     seedDB        = require("./seeds.js")    // clear all database and populate it with users. this file is at the same folder as app.js
 
+var url = process.env.DATABASEURL || "mongodb://localhost/YelpTravel_destinations";
 // create Db inside mongoDB or use existing Db
-mongoose.connect("mongodb://localhost/YelpTravel_destinations", { useNewUrlParser: true })
+// mongoose.connect(url, { useNewUrlParser: true })
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/YelpTravel_destinations', { useNewUrlParser: true });
+
 mongoose.set('useFindAndModify', false);    // fix deprecation
 // tell Express to look inside "public" directory for CSS files
 app.use(express.static(__dirname + "/public"))    // __dirname is the directory app.css is located
