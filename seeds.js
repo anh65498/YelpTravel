@@ -115,7 +115,7 @@ function seedDB(){
                 else {
                   retDest.comments.push(retComment)
                   retDest.save()
-                  console.log("Create 1 new comment!")
+                  console.log("Create 1 new comment in " + retDest.name)
                 }
               })
             }
@@ -123,42 +123,6 @@ function seedDB(){
         }
     }
   })
-
-
-
-
-  // Comment.remove({}, function(err) {
-  //     if(err){
-  //         console.log(err);
-  //     }
-  //     console.log("removed comments!");
-  //      //add a few campgrounds
-  //     data.forEach(function(seed){
-  //         Campground.create(seed, function(err, campground){
-  //             if(err){
-  //                 console.log(err)
-  //             } else {
-  //                 console.log("added a campground");
-  //                 //create a comment
-  //                 Comment.create(
-  //                     {
-  //                         text: "This place is great, but I wish there was internet",
-  //                         author: "Homer"
-  //                     }, function(err, comment){
-  //                         if(err){
-  //                             console.log(err);
-  //                         } else {
-  //                             campground.comments.push(comment);
-  //                             campground.save();
-  //                             console.log("Created new comment");
-  //                         }
-  //                     });
-  //                   }
-  //               });
-  //           });
-  //       });
-  //   });
-    //add a few comments
 }
 
 module.exports = seedDB;  // return this function to whatever variable calls require("seeds.js")
