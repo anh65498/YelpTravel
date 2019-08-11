@@ -16,8 +16,8 @@ var express       = require("express"),
 
 var url = process.env.DATABASEURL || "mongodb://localhost/YelpTravel_destinations";
 // create Db inside mongoDB or use existing Db
-// mongoose.connect(url, { useNewUrlParser: true })
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/YelpTravel_destinations', { useNewUrlParser: true });
+mongoose.connect(url, { useNewUrlParser: true })
+// mongoose.connect("mongodb://<dbuser>:<dbpassword>@ds261567.mlab.com:61567/heroku_5h8vr1w3", { useNewUrlParser: true })     // connect to mongoLab's database
 
 mongoose.set('useFindAndModify', false);    // fix deprecation
 // tell Express to look inside "public" directory for CSS files
@@ -365,4 +365,8 @@ If you run into the Cannot read property 'name' of null  error, it's because now
 This means that, although they look the same, each destination has a brand new id in the database.
 If you want to avoid this error then you can either, comment out seedDB() in app.js
 or just be sure to go back to the destination index page before going to any of the show pages.
+*/
+
+/*
+If website doesn't show new comments added by user, uncomment seedDB() because it wipe out the DB each time app runs
 */
