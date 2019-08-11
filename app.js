@@ -14,10 +14,9 @@ var express       = require("express"),
     User          = require("./MongoDB_models/user.js"),
     seedDB        = require("./seeds.js")    // clear all database and populate it with users. this file is at the same folder as app.js
 
-var url = process.env.DATABASEURL || "mongodb://localhost/YelpTravel_destinations";
-// create Db inside mongoDB or use existing Db
-// mongoose.connect(url, { useNewUrlParser: true })
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/YelpTravel_destinations', { useNewUrlParser: true });
+var url = process.env.MONGODB_URI || 'mongodb://localhost/YelpTravel_destinations'
+// create Db inside mongoDB or use existing Db. This works for heroku + mongolab and localhost DB
+mongoose.connect(url, { useNewUrlParser: true })
 // mongoose.connect("mongodb://<dbuser>:<dbpassword>@ds261567.mlab.com:61567/heroku_5h8vr1w3", { useNewUrlParser: true })     // connect to mongoLab's database
 
 mongoose.set('useFindAndModify', false);    // fix deprecation
