@@ -18,18 +18,17 @@
           <h4 class="pull-right"><%= destination.country%></h4>
           <h4><%= destination.state%></h4>
           <p><%= destination.description%></p>
-          <p style="text-transform: capitalize">
-            <em>Submitted by <%= destination.author.username%></em>
+          <p style="text-align: right">
+            <em>Submitted by <span class="capitalized-content"><%= destination.author.username%></span></em>
           </p>
 
           <% if(currentUser && destination.author.id.equals(currentUser._id)){ %>    <!-- only allow user to edit/delete post -->
             <div id="button" class="text-left" >
                 <a class="btn btn-warning" href="/destinations/<%= destination._id%>/edit">Edit</a>
             <!-- Form that is shown as a button to delete post -->
-            <form class="button-to-form" action="/destinations/<%=destination._id%>?_method=DELETE" method="post">
+            <form id="button" action="/destinations/<%=destination._id%>?_method=DELETE" method="post">
               <button class="btn btn-danger" name="button">Delete</button>
             </form>
-            </div>
           <% } %>
 
         </div>  <!-- ./caption -->
@@ -42,8 +41,8 @@
         <% for (var comment of destination.comments){ %>
           <div class="row">
             <div class="col-md-12">
-              <span class="pull-right"><%=comment.dateCreated.getUTCMonth() + 1%>/<%=comment.dateCreated.getUTCDate()%>/<%=comment.dateCreated.getUTCFullYear()%></span>
-              <p><strong><%=comment.author.username %></strong></p>
+              <span class="pull-right">10 days ago</span>
+              <p class="capitalized-content"><strong><%=comment.author.username %></strong></p>
               <p><%=comment.content %></p>
 
               <% if (currentUser && comment.author.id.equals(currentUser._id)) {%>

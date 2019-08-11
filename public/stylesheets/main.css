@@ -1,6 +1,6 @@
 /* CSS of YelpTravel! */
 body {
-  text-transform: capitalize;
+
 }
 
 h1, h3 {
@@ -39,6 +39,10 @@ h1, h3 {
 
 .button-to-form {         /* put edit, delete, add button inline */
   display: inline;
+}
+
+.capitalized-content{
+  text-transform: capitalize;
 }
 
 #footer {
