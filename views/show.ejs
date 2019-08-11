@@ -42,7 +42,7 @@
         <% for (var comment of destination.comments){ %>
           <div class="row">
             <div class="col-md-12">
-              <span class="pull-right">10 days ago</span>
+              <span class="pull-right"><%=comment.dateCreated.getUTCMonth() + 1%>/<%=comment.dateCreated.getUTCDate()%>/<%=comment.dateCreated.getUTCFullYear()%></span>
               <p><strong><%=comment.author.username %></strong></p>
               <p><%=comment.content %></p>
 

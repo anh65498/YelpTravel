@@ -14,8 +14,8 @@ var express       = require("express"),
     User          = require("./MongoDB_models/user.js"),
     seedDB        = require("./seeds.js")    // clear all database and populate it with users. this file is at the same folder as app.js
 
-var url = process.env.MONGODB_URI || 'mongodb://localhost/YelpTravel_destinations'
 // create Db inside mongoDB or use existing Db. This works for heroku + mongolab and localhost DB
+var url = process.env.MONGODB_URI || 'mongodb://localhost/YelpTravel_destinations'
 mongoose.connect(url, { useNewUrlParser: true })
 // mongoose.connect("mongodb://<dbuser>:<dbpassword>@ds261567.mlab.com:61567/heroku_5h8vr1w3", { useNewUrlParser: true })     // connect to mongoLab's database
 
@@ -27,8 +27,8 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride("_method"))
 // tell Express to use connect flash to flash message (Ex: You don't have permision to do that, You're logged in, ...)
 app.use(flash())
-// clear Db and populate it with fake destinations. If uncomment, Might run into error "Cannot read property 'name' of null  error" then see at the end.
-// seedDB()
+// clear Db and populate it with fake destinations. Why? To clear out DB each time we make mistake. If uncomment, Might run into error "Cannot read property 'name' of null  error" then see at the end.
+seedDB()
 
 
 // PASSPORT CONFIGURATION
@@ -108,7 +108,7 @@ app.get("/destinations/:id", (req, res) => {
   // Inside foundDestination, instead of Comments' id, there're be actual comments
   Destination.findById(req.params.id).populate("comments").exec((error, foundDestination) =>{
     if (error || !foundDestination){
-      req.flash("error", "Post not found. ")
+      req.flash("error", "Post not found.")
       console.log("Error retrieving destination by ID from MongoDB. " + error)
       return res.redirect("/destinations")
     } else{
@@ -165,12 +165,12 @@ app.delete("/destinations/:id", checkPostOwnership, (req, res)=>{
 })
 
 
-// =============================================
-//             COMMENT ROUTES
-// =============================================
+// ==============================================================================
+//                              COMMENT ROUTES
+// ==============================================================================
 // COMMENT NEW route: Show form to create a new comment attached to a destination post
 app.get("/destinations/:id/comments/new", isLoggedIn, (req, res) =>{
-  // find destination by id from db to pass destination's data to the form
+  // find destination by id from db to pass destination's name to the form
   Destination.findById(req.params.id, (error, retDestination) => {
     if (error) console.log("Error getting destination by ID in comment route: " + error)
     else
@@ -192,7 +192,7 @@ app.post("/destinations/:id/comments", isLoggedIn, (req, res) =>{
           // console.log(newlyCreated)      // { _id: 5d3cca1a17b446055dbb215b, content: 'fdfs', __v: 0 }
           // console.log(req.user)   // { _id: 5d32b48bfd13e359f9d0c591, username: 'anh', __v: 0 }
           // add current user's username (req.user.username) and id to comment
-          newlyCreated.author.id        = req.user._id;    // Comment.author.id because of our Comment's schema
+          newlyCreated.author.id        = req.user._id;             // Comment.author.id because of our Comment's schema
           newlyCreated.author.username  = req.user.username;
           //save comment in DB
           newlyCreated.save();
