@@ -8,7 +8,7 @@ var Destination = require("./MongoDB_models/destination.js"),
 var data = [
   {
     // "_id" : ObjectId("5d32b4d0fd13e359f9d0c594"),
-    "comments" : [ ],
+    // "comments" : [ ],
     "name" : "Emerald's Bay",
     "state" : "Nevada", "country" : "United States of America",
     "image" : "/photos/emerald_bay.jpg",
@@ -22,7 +22,7 @@ var data = [
   },
   {
     // "_id" : ObjectId("5d32b46cfd13e359f9d0c590"),
-    "comments" : [ ],
+    // "comments" : [ ],
     "name" : "Disneyland",
     "state" : "California", "country" : "United States of America",
     "image" : "/photos/disneyland.jpg",
@@ -35,7 +35,7 @@ var data = [
   },
   {
     // "_id" : ObjectId("5d32b4a2fd13e359f9d0c592"),
-    "comments" : [ ],
+    // "comments" : [ ],
     "name" : "Santa Monica", "state" : "California",
     "country" : "United States of America",
     "image" : "/photos/santa_monica.jpg",
@@ -48,7 +48,7 @@ var data = [
   },
   {
     // "_id" : ObjectId("5d32b4e7fd13e359f9d0c595"),
-    "comments" :[ ],
+    // "comments" :[ ],
     "name" : "Cloud's Rest",
     "state" : "Ohio",
     "country" :"United States of America",
@@ -61,7 +61,7 @@ var data = [
     "__v" : 0
   },
   {
-    "comment": [],
+    // "comment": [],
     "name": "Desert Mesa",
     "state": "Nevada",
     "country": "United States",
@@ -74,7 +74,7 @@ var data = [
     "__v" : 0
   },
   {
-    "comment": [],
+    // "comment": [],
     "name": "Canyon Floor",
     "state": "Arizona",
     "country": "United States",

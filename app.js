@@ -28,7 +28,7 @@ app.use(methodOverride("_method"))
 // tell Express to use connect flash to flash message (Ex: You don't have permision to do that, You're logged in, ...)
 app.use(flash())
 // clear Db and populate it with fake destinations. If uncomment, Might run into error "Cannot read property 'name' of null  error" then see at the end.
-// seedDB()
+seedDB()
 
 
 // PASSPORT CONFIGURATION
