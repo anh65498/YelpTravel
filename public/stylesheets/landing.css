@@ -51,7 +51,7 @@ and loops an infinite number of times */
   background-repeat: no-repeat;
   opacity: 0;                     /* start with no image, then the image slowly shows up */
   z-index: 0;
-  animation: imageAnimation 50s linear infinite;    /* developer.mozilla.org/en-US/docs/Web/CSS/animation
+  animation: imageAnimation 50s linear infinite;    /* developer.mozilla.org/en-US/docs/Web/CSS/animation */
 }
 
 /* Each list item needs a background-image and the last four need an animation-delay
