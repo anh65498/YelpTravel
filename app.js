@@ -16,7 +16,8 @@ var express       = require("express"),
 
 var url = process.env.DATABASEURL || "mongodb://localhost/YelpTravel_destinations";
 // create Db inside mongoDB or use existing Db
-mongoose.connect(url, { useNewUrlParser: true })
+// mongoose.connect(url, { useNewUrlParser: true })
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/YelpTravel_destinations', { useNewUrlParser: true });
 // mongoose.connect("mongodb://<dbuser>:<dbpassword>@ds261567.mlab.com:61567/heroku_5h8vr1w3", { useNewUrlParser: true })     // connect to mongoLab's database
 
 mongoose.set('useFindAndModify', false);    // fix deprecation
