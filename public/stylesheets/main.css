@@ -79,7 +79,7 @@ a.btn.btn-primary.btn-lg {          /* Add new destination button */
     padding: 10px;
 }
 
-.button-to-form {         /* put edit, delete, add button inline */
+.button-to-delete{         /* put edit, delete, add button inline */
   display: inline;
 }
 

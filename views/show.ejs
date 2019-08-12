@@ -16,19 +16,22 @@
         <img class="img-responsive" src=<%=destination.image%> />
         <div class="caption">
           <h4 class="pull-right"><%= destination.country%></h4>
-          <h4><%= destination.state%></h4>
+          <% if (destination.state != "None") { %>
+              <h4><%= destination.state%></h4>
+          <% } %>
           <p><%= destination.description%></p>
           <p style="text-align: right">
             <em>Submitted by <span class="capitalized-content"><%= destination.author.username%></span></em>
           </p>
 
           <% if(currentUser && destination.author.id.equals(currentUser._id)){ %>    <!-- only allow user to edit/delete post -->
-            <div id="button" class="text-left" >
+            <div id="button" class="text-right" >
                 <a class="btn btn-warning" href="/destinations/<%= destination._id%>/edit">Edit</a>
             <!-- Form that is shown as a button to delete post -->
-            <form id="button" action="/destinations/<%=destination._id%>?_method=DELETE" method="post">
+            <form class="button-to-delete" action="/destinations/<%=destination._id%>?_method=DELETE" method="post">
               <button class="btn btn-danger" name="button">Delete</button>
             </form>
+            </div>
           <% } %>
 
         </div>  <!-- ./caption -->
@@ -46,11 +49,13 @@
               <p><%=comment.content %></p>
 
               <% if (currentUser && comment.author.id.equals(currentUser._id)) {%>
-                <a class="btn btn-xs btn-warning"
-                    href="/destinations/<%= destination._id %>/comments/<%= comment._id %>/edit">Edit</a>
-                <form class="button-to-form" action="/destinations/<%= destination._id %>/comments/<%= comment._id %>?_method=DELETE" method="post">
-                  <button class="btn btn-xs btn-danger">Delete</button>
-                </form>
+                <div id="button" class="text-right" >
+                  <a class="btn btn-xs btn-warning"
+                      href="/destinations/<%= destination._id %>/comments/<%= comment._id %>/edit">Edit</a>
+                  <form class="button-to-delete" action="/destinations/<%= destination._id %>/comments/<%= comment._id %>?_method=DELETE" method="post">
+                    <button class="btn btn-xs btn-danger">Delete</button>
+                  </form>
+                </div>
               <% } %>
 
             </div>
