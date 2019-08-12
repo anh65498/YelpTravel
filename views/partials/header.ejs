@@ -4,9 +4,13 @@
     <title>YelpTravel!</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="/stylesheets/main.css">
+    <% if (url == "/login" || url == "/register"){%>
+      <link rel="stylesheet" href="/stylesheets/login_signup.css">
+    <%}%>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    
+    <!-- think of a way to include login.css in login.ejs only -->
+
   </head>
   <body>
 

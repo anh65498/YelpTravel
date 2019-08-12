@@ -46,7 +46,7 @@ app.use(function(req, res, next){
   res.locals.currentUser            = req.user;      // whatever variable comes after res.locals will be available inside ejs file in the all routes.
   res.locals.flash_message_error    = req.flash("error");
   res.locals.flash_message_success  = req.flash("success");
-
+  res.locals.url                    = req.url.toString();
   (req.url == "/login" || req.url == "/register") ? res.locals.navbar_transparent = "transparent": res.locals.navbar_transparent = "";
   next()                                  // Next is the code block that in the routes
 })  // whatever function is in use() will be called on every route, because every route has navbar and we want to show username on it when user logs in
