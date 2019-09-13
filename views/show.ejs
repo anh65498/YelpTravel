@@ -15,12 +15,15 @@
       <h1> <%=destination.name%> </h1>
         <img class="img-responsive" src=<%=destination.image%> />
         <div class="caption">
-          <h4 class="pull-right"><%= destination.country%></h4>
-          <% if (destination.state != "None") { %>
-              <h4><%= destination.state%></h4>
-          <% } %>
+            <h4 class="text-right"> 
+                <% if (destination.state != "None") { %>
+                  <%= destination.state %>, 
+                <% } %>
+              <%= destination.country %> 
+            </h4>
+            
           <p><%= destination.description%></p>
-          <p style="text-align: right">
+          <p class="text-right">
             <em>Submitted by <span class="capitalized-content"><%= destination.author.username%></span></em>
           </p>
 
